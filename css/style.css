@@ -1,0 +1,208 @@
+html, body {
+  height: 100%;
+  margin: 0;
+}
+
+body {
+  display: grid;
+  grid-template-rows: 150px 1fr 100px;
+  min-height: 100vh;
+  grid-template-areas:
+    "header"
+    "main"
+    "footer";
+}
+
+/* HEADER */
+header {
+  grid-area: header;
+  background-color: #111;
+  color: #fff;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 1rem;
+  position: relative;
+  border-bottom: 2px solid #0ff;
+  z-index: 1100;
+}
+
+header h1 {
+  margin: 0;
+}
+
+/* MAIN */
+main {
+  grid-area: main;
+  padding: 0;
+  background-color: #000;
+  color: #fff;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  overflow: hidden;
+}
+
+main img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* FOOTER */
+footer {
+  grid-area: footer;
+  background-color: #111;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-top: 2px solid #f0f;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* HAMBURGER */
+.hamburger {
+  width: 30px;
+  height: 24px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  cursor: pointer;
+  z-index: 1200;
+  transition: opacity 0.2s ease, visibility 0.2s ease;
+}
+
+.hamburger span {
+  display: block;
+  height: 4px;
+  background: #0ff;
+  border-radius: 2px;
+}
+
+/* Göm hamburger när NAV är öppen */
+body.nav-open .hamburger {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+/* DESKTOP NAV */
+.side-nav {
+  position: fixed;
+  top: 0;
+  right: -200px;
+  width: 200px;
+  height: 100vh;
+  background-color: darkslategray;
+  color: #0ff;
+  padding: 1rem;
+  box-sizing: border-box;
+  transition: right 0.3s ease;
+  z-index: 1300; 
+  overflow-y: auto;
+}
+
+.side-nav.open {
+  right: 0;
+}
+
+.side-nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.side-nav li {
+  margin: 1rem 0;
+}
+
+.side-nav a {
+  color: #0ff;
+  text-decoration: none;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 1.1rem;
+}
+
+.side-nav a:hover {
+  text-decoration: underline;
+}
+
+/* MOBILE NAV */
+@media (max-width: 768px) {
+  header {
+    z-index: 1100; /* Header ovan nav på mobile */
+  }
+
+  .side-nav {
+    top: 150px;
+    right: 0;
+    width: 100%;
+    height: calc(100vh - 150px);
+    padding: 1.5rem 1rem;
+    box-sizing: border-box;
+
+    clip-path: inset(0 0 100% 0);
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+
+    transition:
+      clip-path 0.3s ease,
+      opacity 0.2s ease,
+      visibility 0.2s ease;
+
+    z-index: 1000; /* Under header på mobile */
+    overflow-y: auto;
+  }
+
+  .side-nav.open {
+    clip-path: inset(0 0 0 0);
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+  }
+
+  .side-nav li {
+    margin: 1.25rem 0;
+  }
+
+  .side-nav a {
+    display: block;
+    font-size: 1.2rem;
+  }
+}
+
+/* Three column layout for page1 */
+main.three-column {
+  display: flex;
+  gap: 1rem;
+  padding: 1rem;
+}
+
+.column {
+  flex: 1;
+  background-color: #222;
+  border: 2px solid #0ff;
+  border-radius: 4px;
+  min-height: 200px;
+  overflow: hidden;
+}
+
+.column img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Mobile responsive for three columns */
+@media (max-width: 768px) {
+  main.three-column {
+    flex-direction: column;
+  }
+  
+  .column {
+    min-height: 150px;
+  }
+}
