@@ -32,21 +32,13 @@ header h1 {
   margin: 0;
 }
 
-/* MAIN */
+/* MAIN - grund */
 main {
   grid-area: main;
-  padding: 0;
   background-color: #000;
   color: #fff;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  overflow: hidden;
-}
-
-main img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
+  min-height: 0;
 }
 
 /* FOOTER */
@@ -99,7 +91,7 @@ body.nav-open .hamburger {
   padding: 1rem;
   box-sizing: border-box;
   transition: right 0.3s ease;
-  z-index: 1300; 
+  z-index: 1300;
   overflow-y: auto;
 }
 
@@ -128,10 +120,9 @@ body.nav-open .hamburger {
   text-decoration: underline;
 }
 
-/* MOBILE NAV */
 @media (max-width: 768px) {
   header {
-    z-index: 1100; /* Header ovan nav på mobile */
+    z-index: 1100;
   }
 
   .side-nav {
@@ -152,7 +143,7 @@ body.nav-open .hamburger {
       opacity 0.2s ease,
       visibility 0.2s ease;
 
-    z-index: 1000; /* Under header på mobile */
+    z-index: 1000;
     overflow-y: auto;
   }
 
@@ -173,36 +164,622 @@ body.nav-open .hamburger {
   }
 }
 
-/* Three column layout for page1 */
-main.three-column {
-  display: flex;
-  gap: 1rem;
-  padding: 1rem;
-}
 
-.column {
-  flex: 1;
-  background-color: #222;
-  border: 2px solid #0ff;
-  border-radius: 4px;
-  min-height: 200px;
+
+.home-main {
   overflow: hidden;
+  padding: 0;
 }
 
-.column img {
+.home-main img {
   width: 100%;
   height: 100%;
   object-fit: cover;
   display: block;
 }
 
-/* Mobile responsive for three columns */
-@media (max-width: 768px) {
-  main.three-column {
-    flex-direction: column;
+
+
+.contributors-page {
+  padding: 0;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+/* Första sektionen som fyller skärmen */
+.about-hero {
+  min-height: calc(100vh - 250px);
+  background-image: url("../img/Svart6.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 2rem 4rem;
+  box-sizing: border-box;
+}
+
+.about-overlay {
+  max-width: 700px;
+  background: rgba(0, 0, 0, 0.65);
+  border: 2px solid #0ff;
+  border-radius: 12px;
+  padding: 2rem;
+  box-sizing: border-box;
+}
+
+.about-overlay h2 {
+  margin-top: 0;
+  font-size: 2.5rem;
+  color: #0ff;
+}
+
+.about-overlay p {
+  font-size: 1.1rem;
+  line-height: 1.7;
+  margin-bottom: 1rem;
+}
+
+/* Nedre sektionen med personer */
+.contributors-section {
+  padding: 5rem 4rem;
+  background-color: #050505;
+}
+
+.section-title {
+  font-size: 2.2rem;
+  color: #0ff;
+  margin-bottom: 3rem;
+  text-align: center;
+}
+
+.person-card {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  margin-bottom: 3rem;
+}
+
+.person-image {
+  flex: 0 0 220px;
+  width: 220px;
+  height: 220px;
+}
+
+.person-image img {
+  width: 220px;
+  height: 220px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 4px solid #0ff;
+  display: block;
+}
+
+.person-text {
+  flex: 1;
+  background-color: #111;
+  border: 2px solid #f0f;
+  border-radius: 12px;
+  padding: 1.5rem 2rem;
+  box-sizing: border-box;
+  min-height: 140px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.person-text h3 {
+  margin-top: 0;
+  margin-bottom: 0.75rem;
+  color: #0ff;
+  font-size: 1.6rem;
+}
+
+.person-text p {
+  margin: 0;
+  line-height: 1.7;
+  font-size: 1.05rem;
+  color: #fff;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .about-hero {
+    padding: 2rem;
   }
-  
-  .column {
-    min-height: 150px;
+
+  .contributors-section {
+    padding: 3rem 2rem;
+  }
+
+  .person-card {
+    gap: 1.5rem;
+  }
+
+  .person-image {
+    flex: 0 0 180px;
+    width: 180px;
+    height: 180px;
+  }
+
+  .person-image img {
+    width: 180px;
+    height: 180px;
+  }
+}
+
+@media (max-width: 768px) {
+  .about-hero {
+    min-height: calc(100vh - 250px);
+    padding: 1.5rem;
+  }
+
+  .about-overlay {
+    padding: 1.5rem;
+  }
+
+  .about-overlay h2 {
+    font-size: 2rem;
+  }
+
+  .contributors-section {
+    padding: 2.5rem 1rem;
+  }
+
+  .person-card {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .person-image {
+    width: 160px;
+    height: 160px;
+    flex: 0 0 160px;
+  }
+
+  .person-image img {
+    width: 160px;
+    height: 160px;
+  }
+
+  .person-text {
+    width: 100%;
+  }
+}
+
+/* Layout */
+.about-main {
+  display: grid;
+  grid-template-columns: 300px 1fr;
+  min-height: 0;
+  background: #000;
+}
+ 
+/* Aside */
+aside {
+  background: #0a0a0a;
+  border-right: 2px solid #0ff;
+  padding: 2rem 1.5rem;
+  box-sizing: border-box;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  font-family: 'Segoe UI', sans-serif;
+}
+ 
+aside h2 {
+  margin: 0;
+  font-size: 1.1rem;
+  color: #0ff;
+  text-transform: uppercase;
+  letter-spacing: .1em;
+}
+ 
+aside p.label {
+  margin: 0;
+  font-size: .7rem;
+  letter-spacing: .15em;
+  text-transform: uppercase;
+  color: #f0f;
+}
+ 
+aside ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: .4rem;
+}
+ 
+aside ul a {
+  color: #aaa;
+  text-decoration: none;
+  font-size: .95rem;
+  padding: .35rem .5rem;
+  border-radius: 6px;
+  display: block;
+  border: 1px solid transparent;
+  transition: .2s;
+}
+ 
+aside ul a:hover {
+  color: #0ff;
+  border-color: #0ff5;
+  background: #0ff0;
+}
+ 
+hr {
+  border: none;
+  border-top: 1px solid #0ff3;
+  margin: 0;
+}
+ 
+/* Stat rows */
+.stat {
+  display: flex;
+  justify-content: space-between;
+  font-size: .85rem;
+  color: #aaa;
+  padding: .3rem 0;
+  border-bottom: 1px solid #0ff1;
+}
+ 
+.stat span:last-child {
+  color: #0ff;
+  font-weight: 700;
+}
+ 
+/* Main content area */
+.about-content {
+  overflow-y: auto;
+  color: #fff;
+  font-family: 'Segoe UI', sans-serif;
+}
+ 
+/* Hero */
+.hero {
+  min-height: 50vh;
+  background: url('../img/Svart6.jpg') center / cover no-repeat;
+  background-color: #111;
+  display: flex;
+  align-items: flex-end;
+  padding: 2.5rem;
+  position: relative;
+}
+ 
+.hero::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to bottom, #0003, #000d);
+}
+ 
+.hero-text {
+  position: relative;
+  z-index: 1;
+  max-width: 600px;
+}
+ 
+.hero-text .eye {
+  font-size: .7rem;
+  letter-spacing: .2em;
+  text-transform: uppercase;
+  color: #f0f;
+  margin: 0 0 .5rem;
+}
+ 
+.hero-text h2 {
+  margin: 0 0 .75rem;
+  font-size: clamp(1.8rem, 3.5vw, 2.8rem);
+  color: #fff;
+  line-height: 1.2;
+}
+ 
+.hero-text h2 span {
+  color: #0ff;
+}
+ 
+.hero-text p {
+  margin: 0;
+  color: #bbb;
+  line-height: 1.75;
+  font-size: 1rem;
+}
+ 
+/* Section */
+.section {
+  padding: 2.5rem;
+  border-top: 1px solid #0ff2;
+}
+ 
+.section h3 {
+  margin: 0 0 1.25rem;
+  color: #0ff;
+  font-size: 1.5rem;
+}
+ 
+.section p {
+  color: #aaa;
+  line-height: 1.75;
+  font-size: .95rem;
+  max-width: 620px;
+  margin: 0 0 .75rem;
+}
+ 
+/* Value cards */
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 1rem;
+  margin-top: 1.25rem;
+}
+ 
+.card {
+  background: #0a0a0a;
+  border: 1px solid #0ff3;
+  border-radius: 10px;
+  padding: 1.2rem;
+  transition: .2s;
+}
+ 
+.card:hover {
+  border-color: #0ff;
+  transform: translateY(-3px);
+}
+ 
+.card h4 {
+  margin: .5rem 0 .4rem;
+  color: #0ff;
+  font-size: .9rem;
+  text-transform: uppercase;
+}
+ 
+.card p {
+  margin: 0;
+  font-size: .85rem;
+  color: #888;
+  line-height: 1.6;
+}
+ 
+
+.cta {
+  margin: 0 2.5rem 2.5rem;
+  background: #0a0a0a;
+  border: 2px solid #f0f;
+  border-radius: 12px;
+  padding: 1.75rem 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+ 
+.cta h3 {
+  margin: 0 0 .3rem;
+  color: #0ff;
+}
+ 
+.cta p {
+  margin: 0;
+  color: #888;
+  font-size: .9rem;
+}
+ 
+.cta a {
+  padding: .7rem 1.8rem;
+  border: 2px solid #0ff;
+  border-radius: 8px;
+  color: #0ff;
+  text-decoration: none;
+  font-size: .95rem;
+  white-space: nowrap;
+  transition: .2s;
+  font-family: 'Segoe UI', sans-serif;
+}
+ 
+.cta a:hover {
+  background: #0ff;
+  color: #000;
+}
+ 
+/* Tablet */
+@media (max-width: 900px) {
+  .about-main {
+    grid-template-columns: 1fr;
+  }
+ 
+  aside {
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 1rem;
+    border-right: none;
+    border-bottom: 2px solid #0ff;
+    overflow: visible;
+  }
+ 
+  aside h2 {
+    display: none;
+  }
+  body {
+    grid-template-rows: 150px auto 100px;
+    overflow-y: auto;
+  }
+  .about-content {
+    overflow-y: visible;
+  }
+}
+
+@media (max-width: 600px) {
+  .hero,
+  .section {
+    padding: 1.5rem;
+  }
+  .cta {
+    margin: 0 1.5rem 2rem;
+  }
+}
+
+/* ── PROJEKT-SIDA ── */
+
+.projects-page {
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+/* Hero */
+.projects-hero {
+  min-height: 38vh;
+  background: url('../img/Svart6.jpg') center / cover no-repeat;
+  background-color: #111;
+  display: flex;
+  align-items: flex-end;
+  padding: 2.5rem;
+  position: relative;
+}
+
+.projects-hero::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to bottom, #0003, #000e);
+}
+
+.projects-hero-text {
+  position: relative;
+  z-index: 1;
+  max-width: 600px;
+}
+
+.projects-eye {
+  margin: 0 0 .5rem;
+  font-size: .7rem;
+  letter-spacing: .2em;
+  text-transform: uppercase;
+  color: #f0f;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+.projects-hero-text h2 {
+  margin: 0 0 .75rem;
+  font-size: clamp(1.8rem, 3.5vw, 2.8rem);
+  color: #fff;
+  line-height: 1.2;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+.projects-hero-text h2 span {
+  color: #0ff;
+}
+
+.projects-hero-text p {
+  margin: 0;
+  color: #bbb;
+  line-height: 1.75;
+  font-size: 1rem;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+/* Grid section */
+.projects-grid-section {
+  padding: 3rem 2.5rem;
+  background: #000;
+}
+
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+/* Project card */
+.project-card {
+  background: #0a0a0a;
+  border: 1px solid #0ff3;
+  border-radius: 12px;
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: .75rem;
+  transition: border-color .2s, transform .2s;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+.project-card:hover {
+  border-color: #0ff;
+  transform: translateY(-4px);
+}
+
+.project-tag {
+  display: inline-block;
+  font-size: .7rem;
+  letter-spacing: .15em;
+  text-transform: uppercase;
+  color: #f0f;
+  background: #f0f1;
+  border: 1px solid #f0f4;
+  border-radius: 4px;
+  padding: .2rem .6rem;
+  align-self: flex-start;
+}
+
+.project-card h3 {
+  margin: 0;
+  font-size: 1.3rem;
+  color: #0ff;
+}
+
+.project-card p {
+  margin: 0;
+  font-size: .9rem;
+  color: #888;
+  line-height: 1.65;
+  flex: 1;
+}
+
+.project-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: .25rem;
+  border-top: 1px solid #0ff1;
+  padding-top: .75rem;
+}
+
+.project-status {
+  font-size: .75rem;
+  font-weight: 700;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: #555;
+}
+
+.project-status.active {
+  color: #0ff;
+}
+
+.project-status.beta {
+  color: #f0f;
+}
+
+.project-year {
+  font-size: .8rem;
+  color: #444;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .projects-hero {
+    padding: 1.5rem;
+  }
+
+  .projects-grid-section {
+    padding: 2rem 1rem;
   }
 }
